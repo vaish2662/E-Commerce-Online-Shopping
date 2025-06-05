@@ -50,12 +50,14 @@ try{
         res.status(404).send({Error:"Invalid email or password"})
     }
     let user= await userModel.findOne({email})
+    console.log("user",user)
     if(!user){
         res.send(404).send({
             Error:"Email is not register"
         })
     }
     let match= await comparePassword(password,user.password)
+    console.log("match",password,user.password)
     let token=jwt.sign({_id:user._id},process.env.JWT_SECRET,{expiresIn:"7d"})
        
     if(!match){
