@@ -10,8 +10,8 @@ const hashPassword=async(password)=>{
     }
 }
 
-const comparePassword=(password,hashedPassword)=>{
-    console.log(bcrypt.compare(password,hashedPassword))
-    return bcrypt.compare(password,hashedPassword)
+const comparePassword=async (password,hashedPassword)=>{
+    console.log(await bcrypt.compare(password,hashedPassword))
+    return await bcrypt.compare(password,hashedPassword)
 }
 module.exports={hashPassword,comparePassword}
