@@ -61,6 +61,7 @@ try{
     if(!match){
         res.status(400).send({Error:"Invalid Password"})
     }
+    console.log("login", res)
     res.status(200).send({
         success:true,
         message:"User logged in successfully",
