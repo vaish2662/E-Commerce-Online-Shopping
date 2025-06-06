@@ -57,13 +57,11 @@ try{
         })
     }
     let match= await comparePassword(password,user.password)
-    console.log("match",password,user.password)
     let token=jwt.sign({_id:user._id},process.env.JWT_SECRET,{expiresIn:"7d"})
        
     if(!match){
         res.status(400).send({Error:"Invalid Password"})
     }
-    console.log("login", res)
     res.status(200).send({
         success:true,
         message:"User logged in successfully",
@@ -112,6 +110,7 @@ const forgotPasswordController=async(req,res)=>{
         })
 
     }catch(error){
+        
     res.status(500).send({
             success:false,
             message:"Error while changing the password"
