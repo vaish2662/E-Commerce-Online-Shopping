@@ -3,7 +3,6 @@ const hashPassword=async(password)=>{
     try{
         const saltRounds=10
         const hashedPassword=await bcrypt.hash(password,saltRounds)
-        console.log("hashedPassword -> ",hashedPassword)
         return hashedPassword
     }catch(error){
         console.log(error);
@@ -11,7 +10,6 @@ const hashPassword=async(password)=>{
 }
 
 const comparePassword=async (password,hashedPassword)=>{
-    console.log(await bcrypt.compare(password,hashedPassword))
     return await bcrypt.compare(password,hashedPassword)
 }
 module.exports={hashPassword,comparePassword}
